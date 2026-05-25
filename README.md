@@ -1,10 +1,10 @@
-[index.html](https://github.com/user-attachments/files/28226758/index.html)
+[Uploading index.html.html…]()
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PCP Flow</title>
+  <title>PCP Flow - Navegação por telas</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
@@ -151,6 +151,56 @@
       .form-grid, .filters { grid-template-columns: 1fr !important; }
       .content { padding: var(--space-4); }
       .sidebar { padding: var(--space-4); }
+    }
+
+
+    .tabs { display:flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-2); }
+    .tab-btn { padding: 0.7rem 1rem; border: 1px solid var(--color-border); background: var(--color-surface); border-radius: var(--radius-md); font-weight: 700; }
+    .tab-btn.is-active { background: var(--color-primary); color: var(--color-text-inverse); border-color: var(--color-primary); }
+    .panel { display: none; gap: var(--space-4); }
+    .panel.is-active { display: grid; }
+    .section-head { display:flex; justify-content: space-between; align-items:center; gap: var(--space-3); flex-wrap: wrap; }
+    .section-head h3 { font-size: var(--text-lg); }
+    .mini-note { color: var(--color-text-muted); font-size: var(--text-sm); }
+    .split-grid { display:grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-4); min-width:0; }
+    .stack-grid { display:grid; gap: var(--space-4); }
+    .quick-links { display:flex; gap: var(--space-2); flex-wrap: wrap; }
+    .anchor-btn { display:inline-flex; align-items:center; justify-content:center; padding:0.6rem 0.9rem; border-radius: var(--radius-md); border:1px solid var(--color-border); background: var(--color-surface-2); text-decoration:none; color:var(--color-text); font-weight:700; }
+    .anchor-btn:hover { background: var(--color-primary-highlight); }
+    .client-list { display:grid; gap: var(--space-2); }
+    .client-item { display:flex; justify-content:space-between; gap: var(--space-3); padding:0.8rem 0.9rem; border:1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+    .client-item strong { display:block; }
+    .client-item span { color: var(--color-text-muted); font-size: var(--text-sm); }
+    @media (max-width: 960px) {
+      .split-grid { grid-template-columns: 1fr; }
+    }
+
+
+    .screen-shell { display:grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--space-4); align-items:start; }
+    .screen-sidebar { position: sticky; top: var(--space-4); display:grid; gap: var(--space-4); }
+    .screen-menu-card { background: var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); display:grid; gap: var(--space-3); }
+    .screen-menu-title { display:grid; gap: 2px; }
+    .screen-menu-title p { color: var(--color-text-muted); font-size: var(--text-sm); }
+    .screen-links { display:grid; gap: var(--space-2); }
+    .screen-link { text-align:left; padding: 0.75rem 0.9rem; border:1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface-2); font-weight:700; }
+    .screen-link.is-active { background: var(--color-primary); color: var(--color-text-inverse); border-color: var(--color-primary); }
+    .screen-content { min-width:0; display:grid; gap: var(--space-4); }
+    .screen-panel { display:none; gap: var(--space-4); }
+    .screen-panel.is-active { display:grid; }
+    .hero-card { background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2)); border:1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); display:grid; gap: var(--space-2); }
+    .hero-card p { color: var(--color-text-muted); max-width: 72ch; }
+    .list-columns { display:grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); gap: var(--space-4); }
+    .report-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+    .report-card { background: var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-4); display:grid; gap: var(--space-2); }
+    .report-card span { color: var(--color-text-muted); font-size: var(--text-sm); }
+    .report-card strong { font-size: var(--text-lg); }
+    @media (max-width: 1180px) {
+      .screen-shell { grid-template-columns: 1fr; }
+      .screen-sidebar { position: static; }
+      .report-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 860px) {
+      .list-columns, .report-grid { grid-template-columns: 1fr; }
     }
 
   </style>
