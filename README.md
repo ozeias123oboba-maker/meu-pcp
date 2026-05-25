@@ -1,9 +1,10 @@
+[index.html](https://github.com/user-attachments/files/28226758/index.html)
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PCP Flow - Dashboard de Controle</title>
+  <title>PCP Flow</title>
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
@@ -33,7 +34,7 @@
       --color-success: #6daa45; --color-warning: #fdab43; --color-error: #dd6974; --color-blue: #5591c7;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; overflow: hidden; }
+    html, body { min-height: 100%; overflow-x: hidden; }
     body {
       font-family: 'Satoshi', sans-serif;
       font-size: var(--text-base);
@@ -44,7 +45,7 @@
     button, input, select { font: inherit; color: inherit; }
     button { cursor: pointer; border: 0; }
     input, select { border: 1px solid var(--color-border); background: var(--color-surface-2); border-radius: var(--radius-md); padding: 0.5rem 0.7rem; }
-    .app { display: grid; grid-template-columns: var(--sidebar-width) 1fr; height: 100dvh; }
+    .app { display: grid; grid-template-columns: var(--sidebar-width) minmax(0, 1fr); min-height: 100dvh; }
     .sidebar {
       grid-row: 1 / -1; overflow-y: auto; background: var(--color-surface);
       border-right: 1px solid var(--color-border); padding: var(--space-5);
@@ -60,7 +61,7 @@
       background: var(--color-surface); border-bottom: 1px solid var(--color-border);
     }
     .header-title h2 { font-size: var(--text-lg); }
-    .header-actions { display: flex; gap: var(--space-2); align-items: center; }
+    .header-actions { display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; justify-content: flex-end; }
     .btn { padding: 0.5rem 0.8rem; border-radius: var(--radius-md); font-size: var(--text-xs); font-weight: 700; transition: all var(--transition); }
     .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
     .btn-secondary { background: var(--color-surface-offset); border: 1px solid var(--color-border); }
@@ -130,6 +131,28 @@
       .toolbar { grid-template-columns: 1fr 1fr; }
       .filter-section { grid-template-columns: 1fr 1fr; }
     }
+
+    .page-shell { width: min(1400px, 100%); margin: 0 auto; }
+    .metrics, .filters, .form-grid { min-width: 0; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); }
+    .card, .chart-card, .table-card, .gantt-card { min-width: 0; }
+    canvas { max-width: 100% !important; }
+    table { width: 100%; min-width: 760px; }
+    @media (max-width: 1100px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { grid-row: auto; border-right: 0; border-bottom: 1px solid var(--color-border); }
+      .charts { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .header { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+      .header-actions { width: 100%; justify-content: flex-start; }
+      .metrics { grid-template-columns: 1fr; }
+      .form-grid, .filters { grid-template-columns: 1fr !important; }
+      .content { padding: var(--space-4); }
+      .sidebar { padding: var(--space-4); }
+    }
+
   </style>
 </head>
 <body>
